@@ -1,0 +1,92 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  direction: rtl;
+}
+
+.home-container h1 {
+  margin-bottom: 2rem;
+  color: var(--color-lightest);
+  font-size: 3.5rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.home-nav {
+  width: 100%;
+  max-width: 600px;
+}
+
+.home-nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.home-nav li {
+  margin: 0.5rem 0;
+  animation: slideIn 0.5s ease-out;
+}
+
+.home-nav li:first-child {
+  animation-delay: 0.2s;
+}
+
+.home-nav li:last-child {
+  animation-delay: 0.4s;
+}
+
+.home-nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-lighter);
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  background-color: var(--color-darkest);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.home-nav a:hover {
+  background-color: var(--color-blue);
+  color: var(--color-lightest);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.home-nav a:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* אנימציות */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
