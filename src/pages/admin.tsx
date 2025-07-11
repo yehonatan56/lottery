@@ -14,7 +14,7 @@ export default function Admin() {
     }
   };
   return (
-    <div>
+    <div className="admin-page">
       <h1>צור הגרלה</h1>
       <form className="create-lottery">
         <label htmlFor="lotteryName">שם הגרלה</label>

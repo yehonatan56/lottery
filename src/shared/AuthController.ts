@@ -34,8 +34,8 @@ export class AuthController {
   @BackendMethod({ allowed: true })
   static async loginToLottary(
     name: string,
-    password?: string,
-    isAdmin: boolean = false,
+    password?: string | null,
+    participantName?: string | null,
   ): Promise<{ success: boolean; room?: Lottary; error?: string }> {
     try {
       const foundLottary = await repo(Lottary).findOne({
@@ -47,11 +47,7 @@ export class AuthController {
       }
 
       // בדיקת סיסמה רק אם זה מנהל ויש סיסמה לחדר
-      if (isAdmin && foundLottary.password && foundLottary.password.trim()) {
-        if (!password) {
-          return { success: false, error: "נדרשת סיסמת מנהל לחדר זה" };
-        }
-
+      if (password && foundLottary.password) {
         const isPasswordValid = await AuthController.verifyPassword(
           password,
           foundLottary.password,
@@ -62,6 +58,15 @@ export class AuthController {
         }
       }
 
+      if (
+        participantName &&
+        !foundLottary.participants.includes(participantName)
+      ) {
+        foundLottary.participants.push(participantName);
+        await repo(Lottary).save(foundLottary);
+      } else {
+        return { success: false, error: "משתתף כבר קיים בחדר" };
+      }
       return { success: true, room: foundLottary };
     } catch (error) {
       console.error("שגיאה בהתחברות לחדר:", error);
