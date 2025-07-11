@@ -34,7 +34,6 @@ export class AuthController {
   @BackendMethod({ allowed: true })
   static async loginToLottary(
     name: string,
-    password?: string | null,
     participantName?: string | null,
   ): Promise<{ success: boolean; room?: Lottary; error?: string }> {
     try {
@@ -46,8 +45,41 @@ export class AuthController {
         return { success: false, error: "לא נמצא חדר עם המספר הזה" };
       }
 
-      // בדיקת סיסמה רק אם זה מנהל ויש סיסמה לחדר
-      if (password && foundLottary.password) {
+      if (
+        participantName &&
+        !foundLottary.participants.includes(participantName)
+      ) {
+        foundLottary.participants.push(participantName);
+        await repo(Lottary).save(foundLottary);
+      } else {
+        return { success: false, error: "משתתף כבר קיים בחדר" };
+      }
+      return { success: true, room: foundLottary };
+    } catch (error) {
+      console.error("שגיאה בהתחברות לחדר:", error);
+      return { success: false, error: "אירעה שגיאה בחיפוש החדר" };
+    }
+  }
+
+  @BackendMethod({ allowed: true })
+  static async loginToLottaryAsAdmin(
+    name: string,
+    password?: string,
+  ): Promise<{ success: boolean; room?: Lottary; error?: string }> {
+    try {
+      const foundLottary = await repo(Lottary).findOne({
+        where: { name },
+      });
+
+      if (!foundLottary) {
+        return { success: false, error: "לא נמצא חדר עם המספר הזה" };
+      }
+
+      if (foundLottary.password && foundLottary.password.trim()) {
+        if (!password) {
+          return { success: false, error: "נדרשת סיסמת מנהל לחדר זה" };
+        }
+
         const isPasswordValid = await AuthController.verifyPassword(
           password,
           foundLottary.password,
@@ -58,15 +90,6 @@ export class AuthController {
         }
       }
 
-      if (
-        participantName &&
-        !foundLottary.participants.includes(participantName)
-      ) {
-        foundLottary.participants.push(participantName);
-        await repo(Lottary).save(foundLottary);
-      } else {
-        return { success: false, error: "משתתף כבר קיים בחדר" };
-      }
       return { success: true, room: foundLottary };
     } catch (error) {
       console.error("שגיאה בהתחברות לחדר:", error);
