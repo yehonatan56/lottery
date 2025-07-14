@@ -2,7 +2,7 @@ import express from "express";
 import { api } from "./api.js";
 
 const app = express();
-
+app.use(express.json());
 // This code is responsible for serving the frontend files.
 
 const frontendFiles = process.cwd() + "/dist";
