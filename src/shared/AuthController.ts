@@ -1,5 +1,5 @@
 import { BackendMethod, repo } from "remult";
-import { Lottary } from "./lottaries.ts";
+import { Lottary } from "./lottaries.js";
 export class AuthController {
   @BackendMethod({ allowed: true })
   static async hashPassword(password: string): Promise<string> {

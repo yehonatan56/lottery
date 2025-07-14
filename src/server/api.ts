@@ -1,12 +1,14 @@
 import { remultApi } from "remult/remult-express";
-import { Lottary } from "../shared/lottaries";
-import { AuthController } from "../shared/AuthController.ts";
 import { createPostgresDataProvider } from "remult/postgres";
+import { Lottary } from "../shared/lottaries.js";
+import { AuthController } from "../shared/AuthController.js";
 
 export const api = remultApi({
-  dataProvider: createPostgresDataProvider({
-    connectionString: process.env.DATABASE_URL || undefined,
-  }),
+  dataProvider: process.env.DATABASE_URL
+    ? createPostgresDataProvider({
+        connectionString: process.env.DATABASE_URL,
+      })
+    : undefined,
   entities: [Lottary],
   controllers: [AuthController],
 });
