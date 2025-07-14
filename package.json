@@ -7,7 +7,7 @@
     "dev": "vite",
     "dev-node": "tsx watch --env-file=.env --tsconfig tsconfig.server.json src/server",
     "build": "tsc && vite build && tsc -p tsconfig.server.json",
-    "start": "tsx src/server",
+    "start": "tsx src/server --tsconfig tsconfig.server.json",
     "lint": "eslint .",
     "preview": "vite preview"
   },
