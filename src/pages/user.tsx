@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AuthController } from "../shared/AuthController";
 import "./User.css";
+import React from "react";
 export default function User() {
   const [lotteryName, setLotteryName] = useState("");
   const [participantName, setParticipantName] = useState("");

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLottaryStore } from "../../store.ts";
-import { AuthController } from "../../shared/AuthController.ts";
+import { useLottaryStore } from "../../store";
+import { AuthController } from "../../shared/AuthController";
 
 export default function LoginLottery() {
   const [lotteryName, setLotteryName] = useState("");

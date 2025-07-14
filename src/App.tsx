@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages";
 import Admin from "./pages/admin";
 import User from "./pages/user";
-import Lottery from "./pages/lottery.tsx";
+import Lottery from "./pages/lottery";
+import React from "react";
 
 export default function App() {
   const routes = createBrowserRouter([

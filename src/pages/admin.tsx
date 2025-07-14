@@ -1,5 +1,6 @@
-import CreateLottery from "../components/createLottery/createLottery.tsx";
-import LoginLottery from "../components/loginLottery/loginLottery.tsx";
+import React from "react";
+import CreateLottery from "../components/createLottery/createLottery";
+import LoginLottery from "../components/loginLottery/loginLottery";
 import "./Admin.css";
 export default function Admin() {
   return (

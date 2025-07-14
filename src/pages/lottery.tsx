@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLottaryStore } from "../store.ts";
+import { useLottaryStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { repo } from "remult";
-import { Lottary } from "../shared/lottaries.ts";
-import Wheel from "../base-components/wheel/wheel.tsx";
+import { Lottary } from "../shared/lottaries";
+import Wheel from "../base-components/wheel/wheel";
+import React from "react";
 
 export default function Lottery() {
   const [participants, setParticipants] = useState<string[]>([]);

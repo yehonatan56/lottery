@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { AuthController } from "../../shared/AuthController.ts";
+import { AuthController } from "../../shared/AuthController";
+import React from "react";
 
 export default function CreateLottery() {
   const [lotteryName, setLotteryName] = useState("");
