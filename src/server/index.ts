@@ -14,7 +14,10 @@ app.use((req, res, next) => {
     next(); // תן ל־api או שאר ה־middleware לטפל בזה
   }
 });
-// end of frontend serving code
+
+app.get("/api", (req, res) => {
+  res.send("api");
+});
 app.use(api);
 
 app.listen(process.env["PORT"] || 3002, () => console.log("Server started"));
