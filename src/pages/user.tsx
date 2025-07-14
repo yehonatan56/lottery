@@ -8,7 +8,7 @@ export default function User() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    AuthController.loginToLottary(lotteryName, null, participantName).then(
+    AuthController.loginToLottary(lotteryName, participantName).then(
       (res: any) => {
         if (res.success) {
           setIsLoggedIn(true);

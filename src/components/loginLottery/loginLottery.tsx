@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLottaryStore } from "../../store.ts";
 import { AuthController } from "../../shared/AuthController.ts";
 
 export default function LoginLottery() {
   const [lotteryName, setLotteryName] = useState("");
   const [lotteryPassword, setLotteryPassword] = useState("");
+  // @ts-ignore
+  const setLotteryNameGlobal = useLottaryStore((state) => state.setLottaryName);
+  const navigate = useNavigate();
   const handleLoginLottery = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await AuthController.loginToLottaryAsAdmin(
@@ -13,7 +18,9 @@ export default function LoginLottery() {
     if (res.success) {
       setLotteryName("");
       setLotteryPassword("");
-      // Redirect or update state to indicate successful login
+      // @ts-ignore
+      setLotteryNameGlobal(res.room?.name);
+      navigate("/lottery");
     } else {
       alert(res.error || "אירעה שגיאה בהתחברות להגרלה");
     }

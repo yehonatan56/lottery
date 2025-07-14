@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages";
 import Admin from "./pages/admin";
 import User from "./pages/user";
+import Lottery from "./pages/lottery.tsx";
 
 export default function App() {
   const routes = createBrowserRouter([
@@ -16,6 +17,10 @@ export default function App() {
     {
       path: "/user",
       element: <User />,
+    },
+    {
+      path: "/lottery",
+      element: <Lottery />,
     },
   ]);
   return <RouterProvider router={routes} />;

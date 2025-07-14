@@ -13,15 +13,19 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "canvas-confetti": "^1.9.3",
     "express": "^4.21.0",
+    "pg": "^8.16.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.6.3",
-    "remult": "latest"
+    "remult": "latest",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/bcrypt": "^5.0.2",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/express": "^4.17.21",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
