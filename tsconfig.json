@@ -1,10 +1,17 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-"compilerOptions": {
-  "experimentalDecorators": true
-}
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs", // או "NodeNext" אם צריך
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    // אם אתה משתמש ב-build
+    "jsx": "react"
+  },
+  "include": ["."]
 }
