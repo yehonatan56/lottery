@@ -1,52 +1,30 @@
-# lottery
+# Lottery
 
-## Getting Started
+##  Description
+My lottery application is a simple web application that allows users to create and manage lotteries.
 
-### Prerequisites
+### How it works
+1. **Create a Lottery**: the admin can create a lottery by providing a name and a password.
+2. **Join a Lottery**: users can join a lottery by providing the name.
+3. **Spin the Lottery**: the admin can spin the lottery by providing the name and password. The application will randomly select a winner from the participants.
 
-Make sure you have the following installed on your machine:
+### Motivation          
+On July 14th, there was supposed to be a lecture. A few days before, I thought of running a raffle — and then came up with the idea of a meeting about how to integrate artificial intelligence into your business. So I developed a raffle system.
+### Technologies Used
+| Technology      | Purpose              |        
+|-----------------|----------------------|
+| React           | Frontend UI          |
+| Express.js      | Backend server       |
+| Remult          | Type-safe CRUD logic |
+| PostgreSQL      | database             |
+| Bcrypt          | Password hashing     |
+ | React Router    | SPA navigation       |
+| Zustand         | State management     |
+| Canvas-Confetti | Confetti animation   |
 
-- [Node.js](https://nodejs.org/) (v20 or later)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-### Installation
 
-1. Install dependencies:
 
-   ```bash
-   npm install
-   ```
-
-### Running the Development Environment
-
-To develop locally, you'll need to run both the frontend and backend environments. This requires two terminal windows.
-
-1. In **Terminal 1**, run the frontend development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   This will start the frontend development environment and automatically open your app in the browser.
-
-2. In **Terminal 2**, run the backend development server:
-
-   ```bash
-   npm run dev-node
-   ```
-
-   This will start the backend in watch mode, automatically restarting on code changes.
-
-### Additional Scripts
-
-- **Build for production**:
-
-  ```bash
-  npm run build
-  ```
-
-- **Start the production server**:
-
-  ```bash
-  npm run start
-  ```
+### Development Tools
+- **Docker** – To run the PostgreSQL containerized
+- **Prettier** – For consistent code formatting
