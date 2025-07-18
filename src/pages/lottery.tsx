@@ -19,7 +19,7 @@ export default function Lottery() {
         where: { name: lotteryName },
       })
       .subscribe((info) => {
-        const changes = info.applyChanges([]);
+        const changes = info.items;
         if (changes.length > 0) {
           const lottary = changes[0];
           console.log(lottary.participants);
